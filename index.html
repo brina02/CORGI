@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function showUser(str) {
+            if (str == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                     // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+                };
+
+             xmlhttp.open("GET","getuser.php?q="+str,true);
+            xmlhttp.send();
+            }
+        }
+</script>
+
+    <div class="header">
+        <h1>CORGI</h1>
+        <p>Compilation of Residential Growth Information</p>
+    </div>
+
+    <form>
+    <select name="users" onchange="showUser(this.value)">
+        <option value="">Select a person:</option>
+        <option value="1">Jake</option>
+        <option value="2">Elizabeth</option>
+        <option value="3">Jacob</option>
+        <option value="4">Reagan</option>
+     </select>
+    </form>
+    <br>
+    <div id="txtHint"><b>Person info will be listed here...</b></div>
+
+</body>
+</html>
