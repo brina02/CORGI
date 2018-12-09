@@ -21,7 +21,7 @@
 
 	<?php
 
-	$con = mysqli_connect('preclab1.erau.edu','nunns','Bdoe022318!','G7_ERAU_Housing');
+	$con = mysqli_connect('preclab1.erau.edu','nunns','Bdo318!','G7_ERAU_Housing');
 	if (!$con) {
 		die('Could not connect: ' . mysqli_error($con));
 	}
