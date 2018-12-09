@@ -27,31 +27,10 @@
 		die('Could not connect: ' . mysqli_error($con));
 	}
 
-	else{
-		die('Connected');
+	$result = $mysqli->query("SELECT * FROM Personnel");
 
-	mysqli_select_db($con,"ajax_demo");
-	$sql="SELECT * Personnel user WHERE  eagleID = '".$q."'";
-	$result = mysqli_query($con,$sql);
-
-	echo "<table>
-<tr>
-<th>eagleID</th>
-<th>fname</th>
-<th>lname</th>
-<th>dateOfBirth</th>
-<th>Sex</th>
-</tr>";
-	while($row = mysqli_fetch_array($result)) {
-		echo "<tr>";
-		echo "<td>" . $row['eagleID'] . "</td>";
-		echo "<td>" . $row['fname'] . "</td>";
-		echo "<td>" . $row['lname'] . "</td>";
-		echo "<td>" . $row['dateOfBirth'] . "</td>";
-		echo "<td>" . $row['Sex'] . "</td>";
-    echo "</tr>";
-}
-echo "</table>";
+	echo "Table:" .$results. "done";
+	
 mysqli_close($con);
 	?>
 </body>
