@@ -23,7 +23,7 @@
 
 	$con = mysqli_connect('preclab1.erau.edu','nunns','Bdo318!','G7_ERAU_Housing');
 	if (!$con) {
-		die('Could not connect: ' . mysqli_error($con));
+		scho("Could not connect: " . mysqli_error($con));
 	}
 	$result = $mysqli->query("SELECT * FROM Personnel");
 	echo "Table:" .$results. "done";
